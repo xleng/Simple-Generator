@@ -1,0 +1,33 @@
+#sample configuration
+
+tmp.mount:
+    Description: Mount the temporary directory
+
+    What: tmpfs
+    Where: /tmp
+    Type: tmpfs
+    Options: mode=177,strictatime,size=10M
+
+sysinit.target:
+    Description: sysinit
+
+    Wants: tmp.mount 
+    After: tmp.mount
+    
+
+basic.target:
+    Description: basic stuff
+
+    Wants: sysinit.target
+    After: sysinit.target
+
+
+
+getty.service:
+    Description: getty 
+
+
+
+
+
+   
